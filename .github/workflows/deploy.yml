@@ -1,0 +1,22 @@
+name: Deploy Databricks UC Objects
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Databricks CLI
+        run: pip install databricks-cli
+
+      - name: Run schema script
+        run: |
+          databricks sql query execute \
+            --file deploy/create_schema.sql
