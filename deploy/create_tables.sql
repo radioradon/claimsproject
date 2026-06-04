@@ -1,4 +1,4 @@
-create table uc{
-  id int;
-  name varchar(100)
-}
+CREATE TABLE main.admin.pipeline_config (
+    env STRING,
+    pipeline_name STRING
+);
